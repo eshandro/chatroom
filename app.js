@@ -40,7 +40,12 @@ var users = {}
 
 //If the client just connected
 io.sockets.on('connection', function(socket) {
-
+	console.log('User connected');
+	socket.on('message', function(data) {
+		console.log(data);
+		io.sockets.emit('message', data);
+		// speak(data);
+	})
 });
 
 server.listen(3000, function(){
