@@ -40,6 +40,7 @@ var users = {}
 
 //If the client just connected
 io.sockets.on('connection', function(socket) {
+	users[socket.id] = 'User'+socket.id;
 	console.log('User connected');
 	socket.on('message', function(data) {
 		console.log(data);
